@@ -14,7 +14,7 @@ package com.xuesemofa.resp;
  * 缺点：类如果不公有的或者受保护的构造器，就不能被子类化、程序员很难发现它们。
  * 构造器或者静态工厂，都有个共同的局限性，不能很好的扩展到大量的可选参数，比如为了实现某个类中大量的可选参数而使用重叠构造器，会很难编写并且难以阅读。
  * 如果采用javabeans模式，产生的代码很容易阅读，但是在构造过程中，javaBean可能处于不一致状态。
- * 3. 建造者模式  详见Resp类
+ * 3. 构建器  详见Resp类
  */
 public final class Resp {
 
@@ -86,12 +86,12 @@ public final class Resp {
      * 常用值
      * 成功
      */
-    public static Resp OK = new Builder(200, "成功").build();
+    public final static Resp OK = new Builder(200, "成功").build();
     /**
      * 常用值
      * 失败
      */
-    public static Resp ERROR = new Builder(500, "失败").build();
+    public final static Resp ERROR = new Builder(500, "失败").build();
 
     /**
      * 无论何种形式 构造器还是静态工厂或构建器，都要实现toString(),这样更易于调试
